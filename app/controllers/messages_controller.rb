@@ -7,7 +7,6 @@ class MessagesController < ApplicationController
   end
   
   def create
-    binding.pry
     @message = Message.new(message_params)
    if @message.save
     redirect_to root_path , notice:'メッセージを保存しました'
@@ -40,7 +39,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:name, :body)
+    params.require(:message).permit(:name, :body, :age)
   end
 
   def set_message
